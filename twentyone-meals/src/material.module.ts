@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
 import {
   MatAutocompleteModule,
   MatButtonToggleModule,
@@ -29,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 const modules = [
+  MatExpansionModule,
   MatFormFieldModule,
   MatAutocompleteModule,
   MatButtonToggleModule,

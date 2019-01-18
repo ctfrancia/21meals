@@ -1,16 +1,59 @@
-<p>
-  Login
-</p>
-<div>
-  <mat-form-field>
-    <input matInput placeholder="email">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="password" [type]="hide ? 'password' : 'text' ">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-  </mat-form-field>
+<div class="login-container">
+  <p>
+    Login
+  </p>
+  <!-- <div class="form-holder">
+    <mat-form-field>
+      <input matInput type="email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="password" [type]="hide ? 'password' : 'text' ">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+  </div> -->
 
 </div>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Have an existing Account?
+      </mat-panel-title>
+      <mat-panel-description>
+        Sign In
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  <!-- <div class="form-holder"> -->
+    <mat-form-field>
+      <input matInput type="email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="password" [type]="hide ? 'password' : 'text' ">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+  <!-- </div> -->
+
+    <!-- <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field> -->
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        New? No problem!
+      </mat-panel-title>
+      <mat-panel-description>
+        Create an account!
+        <!-- {{panelOpenState ? 'open' : 'closed'}} -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <!-- <mat-form-field>
 
 </mat-form-field> -->
