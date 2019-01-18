@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatButtonToggleModule,
@@ -10,7 +11,6 @@ import {
   MatCardModule,
   MatChipsModule,
   MatIconModule,
-  MatInputModule,
   MatMenuModule,
   MatProgressSpinnerModule,
   MatProgressBarModule,
@@ -25,9 +25,11 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const modules = [
+  MatFormFieldModule,
   MatAutocompleteModule,
   MatButtonToggleModule,
   MatButtonModule,
