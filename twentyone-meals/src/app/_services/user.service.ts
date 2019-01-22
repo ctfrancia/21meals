@@ -6,20 +6,20 @@ import { User } from '../_models/user';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get<User[]>(`http:localhost:3001/users`);
-  }
+  // getAll() {
+  //   return this.http.get<User[]>(`http:localhost:3001/users`);
+  // }
 
-  getById(id: number) {
-    return this.http.get(`http:localhost:3001/users/${id}`);
-  }
+  // getById(id: number) {
+  //   return this.http.get(`http:localhost:3001/users/${id}`);
+  // }
 
-  register(user: User) {
-    return this.http.post(`http:localhost:3001/users/register`, user);
-  }
+  // register(user: User) {
+  //   return this.http.post(`http:localhost:3001/users/register`, user);
+  // }
 
 
-  delete(id: number) {
-    return this.http.delete(`http:localhost:3001/users/${id}`);
-  }
+  // delete(id: number) {
+  //   return this.http.delete(`http:localhost:3001/users/${id}`);
+  // }
 }
