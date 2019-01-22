@@ -1,0 +1,44 @@
+<mat-card class="example-card">
+  <!--------HEADER------------>
+  <mat-card-header>
+    <mat-card-title>
+      <h3>{{recipe.title}}</h3>
+    </mat-card-title>
+
+    <mat-card-subtitle *ngIf="recipe.dishTypes && recipe.readyInMinutes">
+      <p *ngIf="recipe.dishTypes.length"><span class="sub_info">Type: </span>{{recipe.dishTypes}}</p>
+      <p><span class="sub_info">Ready In: </span>{{recipe.readyInMinutes}} mins</p>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content *ngIf="youtubesrc">
+    <iframe width="320" height="180" [src]="youtubesrc" allowfullscreen></iframe>
+  </mat-card-content>
+
+
+
+  <img *ngIf="recipe.image" mat-card-image [src]="recipe.image" alt="photo">
+  <mat-card-content>
+    <p>{{recipe.instructions}}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <!--
+      <button mat-button (click)="getNutritionById(recipe.id)">{{!nutritionDetailsOpen? "Nutritional Values": "Hide
+        details"}}</button>
+    -->
+    <button mat-flat-button color="primary" (click)="showInstructions()" *ngIf="recipe.instructions">
+      {{instructions?"Hide instructions":"Step by step instructions"}}
+    </button>
+  </mat-card-actions>
+
+  <mat-card-content *ngIf="instructions">
+    <h3>Step by Step instructions</h3>
+    <ol>
+      <div *ngFor="let step of recipe.analyzedInstructions[0].steps">
+        <li>{{step.step}}</li>
+      </div>
+    </ol>
+  </mat-card-content>
+
+</mat-card>
