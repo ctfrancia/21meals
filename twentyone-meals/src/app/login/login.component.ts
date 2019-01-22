@@ -27,11 +27,9 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
   ) {
-    // redirects to home if already logged in
-    console.log('hello from Login Component');
-
+    // redirects to dashboard if already logged in
     if(this.authenticationService.currentUserValue) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
@@ -42,15 +40,9 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     });
-
-    // this.loginForm = this.formBuilder.group({
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required]
-    // });
     // get url from route parameters or default to '/'
-    this.returnURL = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnURL = this.route.snapshot.queryParams['returnUrl'] || '/login';
   }
-
   // convenience f getter for easy acces to form fields
   get f() {
     console.log(this.loginForm.controls);
@@ -70,13 +62,11 @@ export class LoginComponent implements OnInit {
       .subscribe( data => {
         console.log('are you reaching here',data);
 
-        this.router.navigate([this.returnURL]);
+        this.router.navigate(['/dashboard']);
       },
       error => {
         this.alertService.error(error);
         this.loading = false;
       });
-      console.log('after the authentication service');
-
   }
 }
