@@ -3,10 +3,17 @@ import { NgModule } from '@angular/core';
 import { MyMaterialModule } from '../material.module';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+//import { MatCardModule, MatInputModule, MatButtonModule, MatGridList, MatGridTile, MatGridListModule } from '@angular/material'
+import { DemoMaterialModule } from './material-module';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,14 +21,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    RecipeCardComponent
   ],
   imports: [
     MyMaterialModule,
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    DemoMaterialModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
