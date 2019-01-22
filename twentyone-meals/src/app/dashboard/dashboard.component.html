@@ -1,3 +1,165 @@
-<p>
-  dashboard works!
-</p>
+<!----------------------------------- RANDOM RECIPES  ------------------------------------------------->
+
+
+<div>
+  <h1>Random Recipes</h1>
+  <button mat-flat-button color="primary" (click)="getRandomRecipes()">Get Random Recipes</button>
+  <br><br>
+  <div *ngIf="randomRecipes" class="flex-container">
+    <div *ngFor="let recipe of randomRecipes.recipes">
+      <app-recipe-card [recipe]="recipe" [summarised]="false"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+
+
+
+<!----------------------------------- RECIPES BY FRIDGE INGREDIENT  ------------------------------------------------->
+
+
+<div>
+  <h1>Get Recipes by fridge ingredients</h1>
+  <div>
+    <form [formGroup]="formIngredients" (ngSubmit)="getIngredientRecipes()" class="example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter your ingredients" formControlName="ingredients">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <select matNativeControl required placeholder="Select the number of recipes to show" formControlName="number">
+          <option value="1">1</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="submit">Get Recipes by ingredients</button>
+    </form>
+  </div>
+
+  <div *ngIf="ingredientRecipes" class="flex-container">
+    <div *ngFor="let recipe of ingredientRecipes">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<hr>
+
+<!----------------------------------- RECIPES BY NATURAL QUERY ------------------------------------------------->
+
+<div>
+  <h1>Get Recipes by natural query</h1>
+  <div>
+    <form [formGroup]="formQuery" (ngSubmit)="getNaturalQueryRecipes()" class="example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter your query" formControlName="query">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <select matNativeControl required placeholder="Select the number of recipes to show" formControlName="number">
+          <option value="1">1</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit">Get Recipes by natural query</button>
+    </form>
+  </div>
+  <div *ngIf="naturalQueryRecipes" class="flex-container">
+    <div *ngFor="let recipe of naturalQueryRecipes">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+<!----------------------------------- RECIPES BY DAILY CALORIES ------------------------------------------------->
+
+<div>
+  <h1>Get 3 Meal Recipes by daily calorie requirements</h1>
+  <div class="example-container">
+    <form [formGroup]="formDailyMealsByCalories" (ngSubmit)="getRecipesByCaloricRequirement()">
+      <mat-form-field>
+        <input matInput placeholder="Enter your target calories" formControlName="targetCalories">
+      </mat-form-field><br>
+      <button mat-flat-button color="primary" type="submit">Get Recipes by caloric requirement</button>
+    </form>
+  </div>
+
+  <div *ngIf="caloricRecipes" class="flex-container">
+    <div *ngFor="let recipe of caloricRecipes">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+<!----------------------------------- WEEKLY RECIPES BY DAILY CALORIES ------------------------------------------------->
+
+<div>
+  <h1>Get 21 Meal (one week) Recipes by daily calorie requirements</h1>
+  <div class="example-container">
+    <form [formGroup]="formWeeklyMealsByCalories" (ngSubmit)="getRecipesByWeeklyCaloricRequirement()">
+      <mat-form-field>
+        <input matInput placeholder="Enter your target calories" formControlName="targetCalories">
+      </mat-form-field><br>
+      <button mat-flat-button color="primary" type="submit">Get Weekly Recipes by caloric requirement</button>
+    </form>
+  </div>
+
+  <div *ngIf="caloricRecipesWeekly" class="flex-container">
+    <div *ngFor="let recipe of caloricRecipesWeekly">
+      <app-recipe-card [recipe]="recipe.value"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+<!----------------------------------- FOOD VIDEOS  ------------------------------------------------->
+
+
+
+
+<div>
+  <h1>Get Food Videos</h1>
+  <div>
+    <form [formGroup]="foodVideosQuery" (ngSubmit)="getFoodVideos()" class="example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter your food video search term" formControlName="query">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <select matNativeControl required placeholder="Select the number of recipes to show" formControlName="number">
+          <option value="1">1</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="submit">Get food videos</button>
+    </form>
+  </div>
+
+  <div *ngIf="foodVideoRecipes" class="flex-container">
+    <div *ngFor="let recipe of foodVideoRecipes">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
