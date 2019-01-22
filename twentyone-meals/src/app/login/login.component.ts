@@ -63,19 +63,19 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     // if(this.loginForm.invalid) return;
     this.loading = true;
-    // console.log(this.f.email.value);
+    console.log(this.f.email.value);
 
-    // return this.authenticationService.login(this.f.email.value, this.f.password.value)
-    //   .pipe(first())
-    //   .subscribe( data => {
-    //     console.log('are you reaching here',data);
+    return this.authenticationService.login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe( data => {
+        console.log('are you reaching here',data);
 
-    //     this.router.navigate([this.returnURL]);
-    //   },
-    //   error => {
-    //     this.alertService.error(error);
-    //     this.loading = false;
-    //   });
+        this.router.navigate([this.returnURL]);
+      },
+      error => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
       console.log('after the authentication service');
 
   }

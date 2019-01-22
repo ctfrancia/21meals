@@ -31,18 +31,15 @@ export class AuthenticationService {
     // const decodedToken = helper.decodeToken();
     console.log(email, password);
 
-    // const res =  this.http.get<any>('http://localhost:3001/sign-in', {
-    //     headers: {
-    //         email,
-    //         password,
-    //       }
-    //   });
-    //   console.log(res);
-    //   return res;
+    const res =  this.http.get<any>('http://localhost:3001/sign-in', {
+        headers: {
+            email,
+            password,
+          }
+      });
+      console.log(res);
+      return res;
       //return http request instead of sending res
-
-
-
 
     //below is what we are doing
     // return this.http.post<any>(`http:localhost:3001/users/authenticate`, { email, password })
