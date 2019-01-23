@@ -1,0 +1,13 @@
+<div>
+  <h1>Downloaded Recipes</h1>
+  <br /><br />
+  <div *ngIf="recipes" class="flex-container">
+    <div *ngFor="let recipe of recipes">
+      <app-recipe-card
+        [recipe]="recipe"
+        [summarised]="true"
+        [onDownloadPage]="true"
+      ></app-recipe-card>
+    </div>
+  </div>
+</div>

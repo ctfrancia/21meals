@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -10,12 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
-//import { MatCardModule, MatInputModule, MatButtonModule, MatGridList, MatGridTile, MatGridListModule } from '@angular/material'
 import { DemoMaterialModule } from './material-module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { RecipesDownloadedComponent } from './recipes-downloaded/recipes-downloaded.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipesDownloadedComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DemoMaterialModule
-
+    DemoMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -11,8 +11,10 @@ import { isObject } from 'util';
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: any;
   @Input() summarised: boolean = true;
+  @Input() onDownloadPage: boolean = false;
 
   instructions: boolean = false;
+
   nutritionDetailsOpen: boolean = false;
   nutritionalValue: any;
   recipeDetails: any;
@@ -29,6 +31,9 @@ export class RecipeCardComponent implements OnInit {
       );
     }
 
+    if (this.onDownloadPage) {
+      this.recipe.id = this.recipe.recipe_json_details.id;
+    }
     if (this.summarised && !this.recipe.youTubeId) {
       this.rs.getRecipeDetailsById(this.recipe.id).subscribe(response => {
         this.recipe = response;
