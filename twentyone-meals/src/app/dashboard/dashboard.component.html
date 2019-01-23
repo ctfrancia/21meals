@@ -1,8 +1,8 @@
 <div id="dash-container">
     <!----------------------------------- RANDOM RECIPES  ------------------------------------------------->
     <div class="recipe-section">
-      <h1>Random Recipes</h1>
-      <button mat-flat-button color="primary" (click)="getRandomRecipes()">Get Random Recipes</button>
+      <h1>Get random Recipes</h1>
+      <button mat-flat-button color="primary" (click)="getRandomRecipes()">Live wild!</button>
       <br><br>
       <div *ngIf="randomRecipes" class="flex-container">
         <div *ngFor="let recipe of randomRecipes.recipes">
@@ -10,9 +10,6 @@
         </div>
       </div>
     </div>
-
-
-
 
     <!----------------------------------- RECIPES BY FRIDGE INGREDIENT  ------------------------------------------------->
     <div class="recipe-section">
@@ -33,7 +30,7 @@
               <option value="5">5</option>
             </select>
           </mat-form-field>
-          <button mat-flat-button color="primary" type="submit">Get Recipes by ingredients</button>
+          <button mat-flat-button color="primary" type="submit">Recipes by ingredients</button>
         </form>
       </div>
 
@@ -67,7 +64,7 @@
             </select>
           </mat-form-field>
 
-          <button mat-flat-button color="primary" type="submit">Get Recipes by natural query</button>
+          <button mat-flat-button color="primary" type="submit">Recipes by natural query</button>
         </form>
       </div>
       <div *ngIf="naturalQueryRecipes" class="flex-container">
@@ -80,13 +77,13 @@
     <!----------------------------------- RECIPES BY DAILY CALORIES ------------------------------------------------->
 
     <div class="recipe-section">
-      <h1>Get 3 Meal Recipes by daily calorie requirements</h1>
+      <h1>Get 3 Meals Recipes based on calorie requirements</h1>
       <div class="example-container">
         <form [formGroup]="formDailyMealsByCalories" (ngSubmit)="getRecipesByCaloricRequirement()">
           <mat-form-field>
             <input matInput placeholder="Enter your target calories" formControlName="targetCalories">
           </mat-form-field><br>
-          <button mat-flat-button color="primary" type="submit">Get Recipes by caloric requirement</button>
+          <button mat-flat-button color="primary" type="submit">Recipes by calorie requirement</button>
         </form>
       </div>
 
@@ -107,7 +104,7 @@
           <mat-form-field>
             <input matInput placeholder="Enter your target calories" formControlName="targetCalories">
           </mat-form-field><br>
-          <button mat-flat-button color="primary" type="submit">Get Weekly Recipes by caloric requirement</button>
+          <button mat-flat-button color="primary" type="submit">Weekly recipes by calorie requirement</button>
         </form>
       </div>
 
@@ -136,7 +133,7 @@
               <option value="5">5</option>
             </select>
           </mat-form-field>
-          <button mat-flat-button color="primary" type="submit">Get food videos</button>
+          <button mat-flat-button color="primary" type="submit">Search food videos</button>
         </form>
       </div>
 

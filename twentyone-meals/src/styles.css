@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import 'https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=B0BEC5&secondary.color=757575'; */
+/* @import '@angular/material/prebuilt-themes/indigo-pink.css'; */
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color:#e0e0e0;
+    /* font-family: 'Roboto', 'sans-serif'; */
+    background-color: whitesmoke;
+    color: #663047;
 }
 
 h1{
-    color:purple;
+    text-align: center;
 }

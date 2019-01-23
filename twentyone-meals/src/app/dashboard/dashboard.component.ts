@@ -9,7 +9,7 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-
+  show: boolean = false;
   randomRecipes: any;
   ingredientRecipes: any;
   naturalQueryRecipes: any;

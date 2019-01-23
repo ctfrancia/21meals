@@ -2,11 +2,11 @@
   <!--------HEADER------------>
   <mat-card-header>
     <mat-card-title>
-      <h3>{{recipe.title}}</h3>
+      <h3 class="recipe-title">{{recipe.title}}</h3>
     </mat-card-title>
 
     <mat-card-subtitle *ngIf="recipe.dishTypes && recipe.readyInMinutes">
-      <p *ngIf="recipe.dishTypes.length"><span class="sub_info">Type: </span>{{recipe.dishTypes}}</p>
+      <p class="title-container" *ngIf="recipe.dishTypes.length"><span class="sub_info">Type: </span>{{recipe.dishTypes}}</p>
       <p><span class="sub_info">Ready In: </span>{{recipe.readyInMinutes}} mins</p>
     </mat-card-subtitle>
   </mat-card-header>
