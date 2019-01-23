@@ -2,11 +2,18 @@
     <!----------------------------------- RANDOM RECIPES  ------------------------------------------------->
     <div class="recipe-section">
       <h1>Get random Recipes</h1>
-      <button mat-flat-button color="primary" (click)="getRandomRecipes()">Live wild!</button>
+      <button mat-flat-button color="primary" (click)="getRandomRecipes()">
+        {{showRecipes?"Hide Wildness":"Live wild!"}}
+      </button>
       <br><br>
-      <div *ngIf="randomRecipes" class="flex-container">
-        <div *ngFor="let recipe of randomRecipes.recipes">
-          <app-recipe-card [recipe]="recipe" [summarised]="false"></app-recipe-card>
+      <div *ngIf="showRecipes" else #spinner >
+        <div id="spinner" *ngIf="loading">
+          <mat-progress-spinner class="spinner-style" color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+        <div *ngIf="randomRecipes" class="flex-container">
+          <div *ngFor="let recipe of randomRecipes.recipes">
+            <app-recipe-card [recipe]="recipe" [summarised]="false"></app-recipe-card>
+          </div>
         </div>
       </div>
     </div>

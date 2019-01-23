@@ -6,6 +6,11 @@ button{
 h1{
   font-family: 'Reenie Beanie', cursive;
 }
+#spinner{
+  display: flex;
+  justify-content: center;
+  /* margin: auto; */
+}
 #dash-container{
   display: flex;
   width: 80%;
