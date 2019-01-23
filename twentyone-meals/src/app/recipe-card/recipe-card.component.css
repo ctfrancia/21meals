@@ -1,12 +1,29 @@
 .example-card {
-  max-width: 400px;
-  border: 1px rgb(243, 241, 241) solid;
-}
+    max-width: 400px;
+    border:1px rgb(243, 241, 241) solid;
+  }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  /* .recipe-title{
+    word-wrap: normal;
+    font-family: 'Tangerine', cursive;
+  } */
+  .title-container{
+    word-wrap: break-word;
+  }
+  h4{
+    color: purple;
+    font-family: 'Reenie Beanie', 'Roboto';
+    font-size: 3em;
+    margin: 0px;
+  }
+
+  p, ul{
+    font-family: 'Roboto',Verdana, Geneva, Tahoma, sans-serif;
+  }
 
 p,
 ul {
@@ -17,7 +34,10 @@ ul {
   font-weight: bold;
 }
 
-h3 {
-  color: purple;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+  h3{
+    word-wrap: break-word;
+    /* font-family: 'Tangerine', cursive; */
+    font-family: 'Roboto', cursive;
+    color:purple;
+    font-size: 1.5em;
+  }

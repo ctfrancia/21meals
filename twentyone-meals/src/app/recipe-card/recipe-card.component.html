@@ -2,16 +2,14 @@
   <!--------HEADER------------>
   <mat-card-header>
     <mat-card-title>
-      <h3>{{ recipe.title }}</h3>
+      
+      <h3 class="recipe-title">{{recipe.title}}</h3>
     </mat-card-title>
 
     <mat-card-subtitle *ngIf="recipe.dishTypes && recipe.readyInMinutes">
-      <p *ngIf="recipe.dishTypes.length">
-        <span class="sub_info">Type: </span>{{ recipe.dishTypes }}
-      </p>
-      <p>
-        <span class="sub_info">Ready In: </span>{{ recipe.readyInMinutes }} mins
-      </p>
+      <p class="title-container" *ngIf="recipe.dishTypes.length"><span class="sub_info">Type: </span>{{recipe.dishTypes}}</p>
+      <p><span class="sub_info">Ready In: </span>{{recipe.readyInMinutes}} mins</p>
+
     </mat-card-subtitle>
   </mat-card-header>
 
@@ -24,12 +22,14 @@
     ></iframe>
   </mat-card-content>
 
-  <img *ngIf="recipe.image" mat-card-image [src]="recipe.image" alt="photo" />
+  <img *ngIf="recipe.image" mat-card-image [src]="recipe.image" alt="photo">
+  <h4> Summary: </h4>
   <mat-card-content>
-    <p>{{ recipe.instructions }}</p>
+    {{recipe.instructions}}
   </mat-card-content>
 
   <mat-card-actions>
+
     <!--
       <button mat-button (click)="getNutritionById(recipe.id)">{{!nutritionDetailsOpen? "Nutritional Values": "Hide
         details"}}</button>

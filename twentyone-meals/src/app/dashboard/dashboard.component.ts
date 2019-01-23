@@ -1,6 +1,6 @@
 import { DatabaseService } from './../database.service';
 import { MatGridList, MatGridTile } from '@angular/material';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipesService } from '../recipes.service';
 
@@ -10,6 +10,14 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  @Input() recipe: any;
+
+  showRecipes: boolean = false;
+  showRecipes1: boolean = false;
+
+  loading: boolean = true;
+  loading1: boolean = true;
+  
   randomRecipes: any;
   ingredientRecipes: any;
   naturalQueryRecipes: any;
@@ -80,6 +88,34 @@ export class DashboardComponent implements OnInit {
       .subscribe(response => {
         this.caloricRecipes = response['meals'];
       });
+    
+    const data = this.rs.getRecipes("random", { number: 4, tags: "vegan, main" })
+      .subscribe(response => {
+        this.randomRecipes = response
+        this.loading = false;
+      });
+
+    if (data) {
+      this.showRecipes = !this.showRecipes
+    };
+    return data;
+  }
+
+  getIngredientRecipes() {
+    const data = this.rs.getRecipes("findByIngredients", { number: this.formIngredients.value.number, ingredients: this.formIngredients.value.ingredients })
+      .subscribe(response => {
+        this.ingredientRecipes = response;
+        this.loading1 = false;
+      });
+    if (data) {
+      this.showRecipes1 = !this.showRecipes1;
+    };
+    return data;
+  }
+
+  getRecipesByCaloricRequirement() {
+    return this.rs.getRecipes("mealplans/generate", { targetCalories: this.formDailyMealsByCalories.value.targetCalories, timeFrame: "day" })
+      .subscribe(response => { this.caloricRecipes = response["meals"]; });
   }
 
   getRecipesByWeeklyCaloricRequirement() {

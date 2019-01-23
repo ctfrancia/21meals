@@ -35,10 +35,15 @@ export class RecipeCardComponent implements OnInit {
       this.recipe.id = this.recipe.recipe_json_details.id;
     }
     if (this.summarised && !this.recipe.youTubeId) {
+      const regEx = /<\/?[^>]+(>|$)/g;
+
       this.rs.getRecipeDetailsById(this.recipe.id).subscribe(response => {
         this.recipe = response;
+        //repoonse contains html tags regex to remove them
+        return this.recipe.instructions = this.recipe.instructions.replace(regEx, '');
       });
     }
+
   }
 
   showInstructions() {

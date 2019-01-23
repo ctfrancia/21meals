@@ -17,20 +17,20 @@ export class RecipesService {
   }
 
   getRecipes(type: string = "random", params) {
-    return this._http.get(`${this._recipesBaseURL}/${type}`, { params, headers: this._headers })
+    return this._http.get(`${this._recipesBaseURL}/${type}`, { params, headers: this._headers });
   }
 
   getRecipeDetailsById(id: number) {
-    return this._http.get(`${this._recipesBaseURL}/${id}/information`, { headers: { ...this._headers } })
+    return this._http.get(`${this._recipesBaseURL}/${id}/information`, { headers: { ...this._headers } });
   }
 
   getNutritionById(id: number) {
-    return this._http.get(`${this._recipesBaseURL}/${id}/nutritionWidget`, { headers: { ...this._headers }, responseType: 'text' })
+    return this._http.get(`${this._recipesBaseURL}/${id}/nutritionWidget`, { headers: { ...this._headers }, responseType: 'text' });
   }
 
 
   getFoodVideos(type: string, params) {
-    return this._http.get(`${this._foodBaseURL}/${type}/`, { params, headers: this._headers })
+    return this._http.get(`${this._foodBaseURL}/${type}/`, { params, headers: this._headers });
   }
 
 }

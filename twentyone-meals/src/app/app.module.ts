@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MyMaterialModule } from '../material.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -13,6 +14,8 @@ import { DemoMaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesDownloadedComponent } from './recipes-downloaded/recipes-downloaded.component';
+import {JwtInterceptor} from './_helpers/jwt.interceptor';
+import {ErrorInterceptor} from './_helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { RecipesDownloadedComponent } from './recipes-downloaded/recipes-downloa
     RecipesDownloadedComponent,
   ],
   imports: [
+    MyMaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -31,7 +35,10 @@ import { RecipesDownloadedComponent } from './recipes-downloaded/recipes-downloa
     ReactiveFormsModule,
     DemoMaterialModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
