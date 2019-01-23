@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   loading: boolean = true;
   loading1: boolean = true;
-  
+
   randomRecipes: any;
   ingredientRecipes: any;
   naturalQueryRecipes: any;
@@ -56,27 +56,18 @@ export class DashboardComponent implements OnInit {
   }
 
   getRandomRecipes() {
-    this.rs
-      .getRecipes('random', { number: 1, tags: 'vegan, main' })
+    const data = this.rs.getRecipes("random", { number: 4, tags: "vegan, main" })
       .subscribe(response => {
-        this.randomRecipes = response;
-        console.log('ramdom recipes ', this.randomRecipes);
+        this.randomRecipes = response
+        this.loading = false;
         this.dbs.saveRecipesToDB(this.randomRecipes);
       });
-  }
 
-  getIngredientRecipes() {
-    this.rs
-      .getRecipes('findByIngredients', {
-        number: this.formIngredients.value.number,
-        ingredients: this.formIngredients.value.ingredients,
-      })
-      .subscribe(response => {
-        this.ingredientRecipes = response;
-        console.log('ingredient recipes ', this.ingredientRecipes);
+    if (data) {
+      this.showRecipes = !this.showRecipes
+    };
+    return data;
 
-        this.dbs.saveRecipesToDB(this.ingredientRecipes);
-      });
   }
 
   getRecipesByCaloricRequirement() {
@@ -88,7 +79,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(response => {
         this.caloricRecipes = response['meals'];
       });
-    
+
     const data = this.rs.getRecipes("random", { number: 4, tags: "vegan, main" })
       .subscribe(response => {
         this.randomRecipes = response
@@ -102,10 +93,16 @@ export class DashboardComponent implements OnInit {
   }
 
   getIngredientRecipes() {
-    const data = this.rs.getRecipes("findByIngredients", { number: this.formIngredients.value.number, ingredients: this.formIngredients.value.ingredients })
+    const data = this.rs
+      .getRecipes('findByIngredients', {
+        number: this.formIngredients.value.number,
+        ingredients: this.formIngredients.value.ingredients,
+      })
       .subscribe(response => {
         this.ingredientRecipes = response;
-        this.loading1 = false;
+        console.log('ingredient recipes ', this.ingredientRecipes);
+
+        this.dbs.saveRecipesToDB(this.ingredientRecipes);
       });
     if (data) {
       this.showRecipes1 = !this.showRecipes1;
@@ -113,10 +110,7 @@ export class DashboardComponent implements OnInit {
     return data;
   }
 
-  getRecipesByCaloricRequirement() {
-    return this.rs.getRecipes("mealplans/generate", { targetCalories: this.formDailyMealsByCalories.value.targetCalories, timeFrame: "day" })
-      .subscribe(response => { this.caloricRecipes = response["meals"]; });
-  }
+
 
   getRecipesByWeeklyCaloricRequirement() {
     this.rs
