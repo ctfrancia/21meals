@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   MatAutocompleteModule,
   MatButtonToggleModule,
@@ -13,7 +14,6 @@ import {
   MatChipsModule,
   MatIconModule,
   MatMenuModule,
-  MatProgressSpinnerModule,
   MatProgressBarModule,
   MatRadioModule,
   MatRippleModule,

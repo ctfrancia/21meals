@@ -18,11 +18,13 @@
 
 
   <img *ngIf="recipe.image" mat-card-image [src]="recipe.image" alt="photo">
+  <h4> Summary: </h4>
   <mat-card-content>
-    <p>{{recipe.instructions}}</p>
+    {{recipe.instructions}}
   </mat-card-content>
 
   <mat-card-actions>
+
     <!--
       <button mat-button (click)="getNutritionById(recipe.id)">{{!nutritionDetailsOpen? "Nutritional Values": "Hide
         details"}}</button>
@@ -34,11 +36,11 @@
 
   <mat-card-content *ngIf="instructions">
     <h3>Step by Step instructions</h3>
-    <ol>
-      <div *ngFor="let step of recipe.analyzedInstructions[0].steps">
+    <!-- <div *ngFor="let step of recipe.analyzedInstructions[0].steps"> -->
+      <ol *ngFor="let step of recipe.analyzedInstructions[0].steps">
         <li>{{step.step}}</li>
-      </div>
-    </ol>
+      </ol>
+      <!-- </div> -->
   </mat-card-content>
 
 </mat-card>
