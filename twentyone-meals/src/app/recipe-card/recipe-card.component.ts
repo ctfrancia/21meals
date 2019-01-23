@@ -6,10 +6,9 @@ import { isObject } from 'util';
 @Component({
   selector: 'app-recipe-card',
   templateUrl: './recipe-card.component.html',
-  styleUrls: ['./recipe-card.component.css']
+  styleUrls: ['./recipe-card.component.css'],
 })
 export class RecipeCardComponent implements OnInit {
-
   @Input() recipe: any;
   @Input() summarised: boolean = true;
 
@@ -19,18 +18,21 @@ export class RecipeCardComponent implements OnInit {
   recipeDetails: any;
   youtubesrc: any;
 
-  constructor(private rs: RecipesService, private sanitizer: DomSanitizer) { }
+  constructor(private rs: RecipesService, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-
     if (!isObject(this.recipe)) this.recipe = JSON.parse(this.recipe);
 
     if (this.recipe.youTubeId) {
-      this.youtubesrc = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + this.recipe.youTubeId)
+      this.youtubesrc = this.sanitizer.bypassSecurityTrustResourceUrl(
+        'https://www.youtube.com/embed/' + this.recipe.youTubeId,
+      );
     }
 
     if (this.summarised && !this.recipe.youTubeId) {
-      this.rs.getRecipeDetailsById(this.recipe.id).subscribe(response => { this.recipe = response })
+      this.rs.getRecipeDetailsById(this.recipe.id).subscribe(response => {
+        this.recipe = response;
+      });
     }
   }
 
@@ -39,16 +41,21 @@ export class RecipeCardComponent implements OnInit {
   }
 
   getNutritionById(id) {
-    this.rs.getNutritionById(id)
-      .subscribe(response => {
-        this.nutritionDetailsOpen = !this.nutritionDetailsOpen;
-        this.nutritionalValue = response;
-        console.log(this.nutritionalValue)
-      })
+    this.rs.getNutritionById(id).subscribe(response => {
+      this.nutritionDetailsOpen = !this.nutritionDetailsOpen;
+      this.nutritionalValue = response;
+      console.log(this.nutritionalValue);
+    });
+  }
+
+  addToMyRecipes() {
+    console.log(
+      'add this recipe to the recipes_loved table in the database',
+      this.recipe,
+    );
   }
 
   isObject(obj) {
     return obj !== undefined && obj !== null && obj.constructor == Object;
   }
 }
-
