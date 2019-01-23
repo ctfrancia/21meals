@@ -37,13 +37,18 @@
               <option value="5">5</option>
             </select>
           </mat-form-field>
-          <button mat-flat-button color="primary" type="submit">Recipes by ingredients</button>
+          <button mat-flat-button color="primary" type="submit">
+            {{showRecipes1?"Hide List": "Find recipes by ingredients"}}</button>
         </form>
       </div>
-
-      <div *ngIf="ingredientRecipes" class="flex-container">
-        <div *ngFor="let recipe of ingredientRecipes">
-          <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      <div *ngIf="showRecipes1" else #spinner1>
+        <div id="spinner1" *ngIf="loading1">
+          <mat-progress-spinner class="spinner-style" color="primary" mode="determinate"></mat-progress-spinner>
+        </div>
+        <div *ngIf="ingredientRecipes" class="flex-container">
+          <div *ngFor="let recipe of ingredientRecipes">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          </div>
         </div>
       </div>
     </div>

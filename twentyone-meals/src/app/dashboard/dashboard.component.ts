@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
   @Input() recipe: any;
 
   showRecipes: boolean = false;
+  showRecipes1: boolean = false;
+
   loading: boolean = true;
+  loading1: boolean = true;
 
   randomRecipes: any;
   ingredientRecipes: any;
@@ -60,8 +63,15 @@ export class DashboardComponent implements OnInit {
   }
 
   getIngredientRecipes() {
-    this.rs.getRecipes("findByIngredients", { number: this.formIngredients.value.number, ingredients: this.formIngredients.value.ingredients })
-      .subscribe(response => this.ingredientRecipes = response)
+    const data = this.rs.getRecipes("findByIngredients", { number: this.formIngredients.value.number, ingredients: this.formIngredients.value.ingredients })
+      .subscribe(response => {
+        this.ingredientRecipes = response;
+        this.loading1 = false;
+      });
+    if (data) {
+      this.showRecipes1 = !this.showRecipes1;
+    };
+    return data;
   }
 
   getRecipesByCaloricRequirement() {
