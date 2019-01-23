@@ -2,10 +2,17 @@
     max-width: 400px;
     border:1px rgb(243, 241, 241) solid;
   }
-  
+
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+  }
+  /* .recipe-title{
+    word-wrap: normal;
+    font-family: 'Tangerine', cursive;
+  } */
+  .title-container{
+    word-wrap: break-word;
   }
 
   p, ul{
@@ -17,7 +24,9 @@
   }
 
   h3{
+    word-wrap: break-word;
+    /* font-family: 'Tangerine', cursive; */
+    font-family: 'Roboto','Tangerine', cursive;
     color:purple;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    font-size: 1.5em;
   }
