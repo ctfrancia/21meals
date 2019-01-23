@@ -9,14 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
-//import { MatCardModule, MatInputModule, MatButtonModule, MatGridList, MatGridTile, MatGridListModule } from '@angular/material'
 import { DemoMaterialModule } from './material-module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecipesDownloadedComponent } from './recipes-downloaded/recipes-downloaded.component';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
-
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipesDownloadedComponent,
   ],
   imports: [
     MyMaterialModule,
@@ -33,8 +33,7 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DemoMaterialModule
-
+    DemoMaterialModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -42,4 +41,4 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

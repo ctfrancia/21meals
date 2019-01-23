@@ -25,9 +25,14 @@
     font-family: 'Roboto',Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  .sub_info{
-    font-weight: bold;
-  }
+p,
+ul {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sub_info {
+  font-weight: bold;
+}
 
   h3{
     word-wrap: break-word;
