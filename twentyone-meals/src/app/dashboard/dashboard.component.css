@@ -4,7 +4,9 @@ button{
   font-size: 1em;
 }
 h1{
-  font-family: 'Reenie Beanie', cursive;
+  font-family: 'Titillium Web', sans-serif;
+  margin: 10px 0px;
+  line-height: 1.2em;
 }
 #spinner{
   display: flex;
