@@ -10,9 +10,12 @@
         <div id="spinner" *ngIf="loading">
           <mat-progress-spinner class="spinner-style" color="primary" mode="indeterminate"></mat-progress-spinner>
         </div>
+        <br>
         <div *ngIf="randomRecipes" class="flex-container">
           <div *ngFor="let recipe of randomRecipes.recipes">
-            <app-recipe-card [recipe]="recipe" [summarised]="false"></app-recipe-card>
+            <app-recipe-card [recipe]="recipe" [summarised]="false" class="recipe-item"></app-recipe-card>
+            <br>
+
           </div>
         </div>
       </div>
@@ -45,9 +48,11 @@
         <div id="spinner1" *ngIf="loading1">
           <mat-progress-spinner class="spinner-style" color="primary" mode="determinate"></mat-progress-spinner>
         </div>
+        <br>
         <div *ngIf="ingredientRecipes" class="flex-container">
           <div *ngFor="let recipe of ingredientRecipes">
             <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            <br>
           </div>
         </div>
       </div>
@@ -79,9 +84,11 @@
           <button mat-flat-button color="primary" type="submit">Recipes by natural query</button>
         </form>
       </div>
+      <br>
       <div *ngIf="naturalQueryRecipes" class="flex-container">
         <div *ngFor="let recipe of naturalQueryRecipes">
           <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          <br>
         </div>
       </div>
     </div>
@@ -98,10 +105,11 @@
           <button mat-flat-button color="primary" type="submit">Recipes by calorie requirement</button>
         </form>
       </div>
-
+      <br>
       <div *ngIf="caloricRecipes" class="flex-container">
         <div *ngFor="let recipe of caloricRecipes">
           <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          <br>
         </div>
       </div>
     </div>
@@ -119,10 +127,11 @@
           <button mat-flat-button color="primary" type="submit">Weekly recipes by calorie requirement</button>
         </form>
       </div>
-
+      <br>
       <div *ngIf="caloricRecipesWeekly" class="flex-container">
         <div *ngFor="let recipe of caloricRecipesWeekly">
           <app-recipe-card [recipe]="recipe.value"></app-recipe-card>
+          <br>
         </div>
       </div>
     </div>
@@ -148,10 +157,11 @@
           <button mat-flat-button color="primary" type="submit">Search food videos</button>
         </form>
       </div>
-
+      <br>
       <div *ngIf="foodVideoRecipes" class="flex-container">
         <div *ngFor="let recipe of foodVideoRecipes">
           <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          <br>
         </div>
       </div>
     </div>
